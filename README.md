@@ -1,4 +1,4 @@
-# Sales-Management
+# Sales-Management - Power BI and SQL
 
 ### Transforming Raw Sales Data into Actionable Business Insights
 
