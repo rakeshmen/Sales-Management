@@ -29,13 +29,14 @@ This project follows a **Star Schema** design:
 
 **Fact Table:**
 
-* `FactInternetSalesCleansed` – contains transaction-level sales data.
+* `FactInternetSales` – contains transaction-level sales data.
+* `FactBudget` – contains 2024, and 2025 budget data.
 
 **Dimension Tables:**
 
-* `DimCustomerCleansed` – customer attributes and segmentation.
-* `DimProductCleansed` – product categories and hierarchies.
-* `DimCalendarCleansed` – time intelligence (date, month, quarter, year).
+* `DimCustomer` – customer attributes and segmentation.
+* `DimProduct` – product categories and hierarchies.
+* `DimCalendar` – time intelligence (date, month, quarter, year).
 
 The model ensures high performance for analytical queries and clear relationships between business entities.
 
@@ -90,7 +91,7 @@ The model ensures high performance for analytical queries and clear relationship
 ## Skills Used
 
 * Data Modeling (Star Schema Design)
-* SQL for Data Transformation
+* SQL for Data Cleansing, and Data Transformation
 * Power Query for ETL
 * DAX (Time Intelligence, KPI Calculation, Dynamic Measures)
 * Dashboard Design and UX Best Practices
@@ -102,9 +103,9 @@ The model ensures high performance for analytical queries and clear relationship
 
 | KPI                     | DAX Expression                                                                         |
 | ----------------------- | -------------------------------------------------------------------------------------- |
-| **Total Sales**         | `Total Sales = SUM(FactInternetSalesCleansed[SalesAmount])`                            |
+| **Total Sales**         | `Total Sales = SUM(FactInternetSales[SalesAmount])`                            |
 | **Sales vs Budget %**   | `Sales vs Budget % = DIVIDE([Total Sales] - [Budget Amount], [Budget Amount])`         |
-| **YOY Growth**          | `YOY Growth = CALCULATE([Total Sales], SAMEPERIODLASTYEAR(DimCalendarCleansed[Date]))` |
+| **YOY Growth**          | `YOY Growth = CALCULATE([Total Sales], SAMEPERIODLASTYEAR(DimCalendar[Date]))` |
 | **Average Order Value** | `AOV = DIVIDE([Total Sales], [Total Orders])`                                          |
 
 ---
